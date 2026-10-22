@@ -1,0 +1,4 @@
+repository "DroneControl/DroneControl@6872896773435@cloud"
+  path "/"
+    br "/main"
+    co "/main"
