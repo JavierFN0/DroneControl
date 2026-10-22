@@ -1,10 +1,9 @@
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Status : MonoBehaviour
 {
-    const float speed = 10f;
-    [SerializeField] private float _speedX = 5f;
-    [SerializeField] private float _speedY = 1f;
+    [SerializeField] private float hp = 100;
+    [SerializeField] private float speed = 10f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,8 +15,12 @@ public class Movement : MonoBehaviour
     {
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(moveX, 0f, moveZ) * (_speedX * Time.deltaTime);
+        Vector3 movement = new Vector3(moveX, 0f, moveZ) * (speed * Time.deltaTime);
         transform.Translate(movement);
-        
+    }
+
+    void TakeDamage(float damage)
+    {
+        hp -= damage;
     }
 }
